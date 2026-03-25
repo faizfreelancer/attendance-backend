@@ -16,11 +16,14 @@ a [Sails v1](https://sailsjs.com) application
 
 This app was originally generated on Wed Mar 25 2026 09:52:40 GMT+0700 (Western Indonesia Time) using Sails v1.5.17.
 
-<!-- Internally, Sails used [`sails-generate@2.0.13`](https://github.com/balderdashy/sails-generate/tree/v2.0.13/lib/core-generators/new). -->
+Internally, Sails used [`sails-generate@2.0.13`](https://github.com/balderdashy/sails-generate/tree/v2.0.13/lib/core-generators/new).
 
 
 
-<!--
+
 Note:  Generators are usually run using the globally-installed `sails` CLI (command-line interface).  This CLI version is _environment-specific_ rather than app-specific, thus over time, as a project's dependencies are upgraded or the project is worked on by different developers on different computers using different versions of Node.js, the Sails dependency in its package.json file may differ from the globally-installed Sails CLI release it was originally generated with.  (Be sure to always check out the relevant [upgrading guides](https://sailsjs.com/upgrading) before upgrading the version of Sails used by your app.  If you're stuck, [get help here](https://sailsjs.com/support).)
--->
 
+
+
+sistem kehadiran
+e07ccff62c74892596663722474926b44737b102
