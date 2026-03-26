@@ -9,11 +9,14 @@
  */
 
 module.exports.routes = {
-
   "/": { view: "pages/homepage" },
 
   "POST /api/auth/login": {
     action: "auth/login",
+  },
+
+  "GET /api/test/auth": {
+    action: "test/auth",
   },
 
   /***************************************************************************

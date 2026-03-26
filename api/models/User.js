@@ -22,6 +22,11 @@ module.exports = {
       type: "string",
     },
 
+    email: {
+      type: "string",
+      required: true,
+      unique: true, // ← tambah ini
+    },
     role: {
       type: "string",
       isIn: ["admin", "user"],

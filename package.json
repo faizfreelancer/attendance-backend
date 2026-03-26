@@ -9,6 +9,7 @@
     "@sailshq/lodash": "^3.10.6",
     "@sailshq/socket.io-redis": "^6.1.2",
     "dotenv": "^17.3.1",
+    "geolib": "^3.3.4",
     "grunt": "1.0.4",
     "node-fetch": "^2.7.0",
     "sails": "^1.5.17",
