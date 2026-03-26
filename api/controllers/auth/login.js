@@ -46,19 +46,24 @@ module.exports = async function (req, res) {
         email: email,
         role: "user",
       }).fetch();
+
+      return res.status(201).json({
+        message: "User baru berhasil dibuat",
+        user,
+      });
     } else {
       user = await User.updateOne({ id: user.id }).set({
         firstName: firstName,
         lastName: lastName,
         role: "user",
       });
-    }
 
-    // 6. Response ke mobile
-    return res.ok({
-      message: "Login success",
-      user,
-    });
+
+      return res.ok({
+        message: "Data user sudah ada di Database",
+        user,
+      });
+    }
   } catch (err) {
     return res.serverError(err);
   }

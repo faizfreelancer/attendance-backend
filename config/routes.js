@@ -15,8 +15,8 @@ module.exports.routes = {
     action: "auth/login",
   },
 
-  "GET /api/test/auth": {
-    action: "test/auth",
+  "POST /api/attendance/validasi-gps": {
+    action: "attendance/validasi-gps",
   },
 
   /***************************************************************************
