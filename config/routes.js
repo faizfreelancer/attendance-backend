@@ -19,6 +19,12 @@ module.exports.routes = {
     action: "attendance/validasi-gps",
   },
 
+  // Office routes
+  "POST /api/office": "OfficeController.create",
+  "GET /api/office": "OfficeController.list",
+  "PUT /api/office/:id": "OfficeController.update",
+  "DELETE /api/office/:id": "OfficeController.delete",
+
   /***************************************************************************
    *                                                                          *
    * More custom routes here...                                               *
