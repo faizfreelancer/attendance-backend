@@ -11,12 +11,12 @@
 module.exports.routes = {
   "/": { view: "pages/homepage" },
 
-  "POST /api/auth/login": {
-    action: "auth/login",
+  "POST /api/auth/google": {
+    action: "auth/login-google",
   },
 
-  "POST /api/attendance/validasi-gps": {
-    action: "attendance/validasi-gps",
+  "POST /api/attendance/check-in": {
+    action: "attendance/check-in",
   },
 
   // Office routes
@@ -36,4 +36,3 @@ module.exports.routes = {
    *                                                                          *
    ***************************************************************************/
 };
-

@@ -9,14 +9,17 @@
  */
 
 module.exports.policies = {
+  "attendance/*": ["isAuthenticated"],
 
+  // Admin only endpoint
+  "admin/*": ["isAuthenticated", "isAdmin"],
+
+  "auth/*": true,
   /***************************************************************************
-  *                                                                          *
-  * Default policy for all controllers and actions, unless overridden.       *
-  * (`true` allows public access)                                            *
-  *                                                                          *
-  ***************************************************************************/
-
+   *                                                                          *
+   * Default policy for all controllers and actions, unless overridden.       *
+   * (`true` allows public access)                                            *
+   *                                                                          *
+   ***************************************************************************/
   // '*': true,
-
 };

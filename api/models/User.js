@@ -27,11 +27,9 @@ module.exports = {
       required: true,
       unique: true, // ← tambah ini
     },
-    role: {
-      type: "string",
-      isIn: ["admin", "user"],
-      defaultsTo: "user",
+    isAdmin: {
+      type: "boolean",
+      defaultsTo: false,
     },
   },
 };
-
