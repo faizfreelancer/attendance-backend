@@ -1,9 +1,28 @@
 module.exports = async function (req, res) {
   try {
-    const geoCheck = await GeoService.isWithinRadius(req.body);
+    //user dari policy (isAuthenticated)
+    const user = req.user;
 
-    return res.ok(geoCheck);
+    if (!user) {
+      return res.forbidden({ error: "Unauthorized" });
+    }
+
+    const { lat, long, photo, notes } = req.body;
+
+    const result = await AttendanceService.checkIn(user.id, {
+      lat,
+      long,
+      photo,
+      notes,
+    });
+
+    return res.ok({
+      message: "Check-in berhasil",
+      data: result,
+    });
   } catch (err) {
-    return res.badRequest({ error: err.message });
+    return res.badRequest({
+      error: err.message,
+    });
   }
 };
