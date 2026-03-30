@@ -10,6 +10,8 @@
 
 module.exports.custom = {
 
+  ruangkerjaAppKey: process.env.RK_APP_KEY,
+
   /***************************************************************************
   *                                                                          *
   * Any other custom config this Sails app should use during development.    *
