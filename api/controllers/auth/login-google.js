@@ -8,7 +8,7 @@ module.exports = async function (req, res) {
 
     const googleToken = authHeader.split(" ")[1];
 
-    const result = await AuthService.loginWithGoogle(googleToken);
+    const result = await AuthService.auth(googleToken);
 
     return res.ok({
       message: "Login berhasil",

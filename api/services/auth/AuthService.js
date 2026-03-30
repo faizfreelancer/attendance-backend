@@ -1,5 +1,5 @@
 module.exports = {
-  async loginWithGoogle(accessToken) {
+  async auth(accessToken) {
     // 1. Tukar ke RK token
     const rkToken = await RuangKerjaService.loginWithGoogle(accessToken);
 
