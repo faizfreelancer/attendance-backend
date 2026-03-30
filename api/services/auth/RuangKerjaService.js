@@ -7,12 +7,17 @@ module.exports = {
     );
 
     const data = await res.json();
+    console.log("RESPONSE RK LOGIN:", JSON.stringify(data)); // ← tambah ini
 
-    if (!data.token) {
+    if (!data.accessToken) {
       throw new Error("Login RK gagal");
     }
 
-    return data.token;
+    // Return accessToken + email sekalian
+    return {
+      accessToken: data.accessToken,
+      email: data.data.email,
+    };
   },
 
   async getProfile(token) {

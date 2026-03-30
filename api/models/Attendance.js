@@ -18,14 +18,14 @@ module.exports = {
 
     check_in_time: {
       type: 'ref',
-      columnType: 'datetime',
-      allowNull: true
+      columnType: 'timestamp',
+
     },
 
     check_out_time: {
       type: 'ref',
-      columnType: 'datetime',
-      allowNull: true
+      columnType: 'timestamp',
+
     },
 
     check_in_lat: {
