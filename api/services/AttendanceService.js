@@ -1,5 +1,6 @@
 module.exports = {
   async checkIn(userId, data) {
+    const today = new Date().toISOString().split("T")[0]; // ← taruh disini
     // 1. basic validation
     if (!data.lat || !data.long) {
       throw new Error("Lokasi wajib");
@@ -28,6 +29,7 @@ module.exports = {
     // 5. save
     return await Attendance.create({
       user_id: userId,
+      office_id: geo.officeId, // ← dari geo
       date: today,
       check_in_time: new Date(),
       check_in_lat: data.lat,

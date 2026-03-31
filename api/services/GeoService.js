@@ -56,6 +56,7 @@ module.exports = {
     //6. Respon jika success
     return {
       message: "Validasi GPS berhasil",
+      officeId: office.id, // ← tambah ini
       office: office.name,
       distance: `${distance} meter`,
     };
