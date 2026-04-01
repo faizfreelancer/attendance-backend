@@ -15,8 +15,16 @@ module.exports.routes = {
     action: "auth/login-google",
   },
 
+  "POST /api/attendance/validasi-gps": {
+    action: "attendance/validasi-gps",
+  },
+
   "POST /api/attendance/check-in": {
     action: "attendance/check-in",
+  },
+
+  "POST /api/attendance/check-out": {
+    action: "attendance/check-out",
   },
 
   // Office routes

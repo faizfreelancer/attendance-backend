@@ -1,77 +1,87 @@
 module.exports = {
   attributes: {
-
     user_id: {
-      model: 'user',
-      required: true
+      model: "user",
+      required: true,
     },
 
     office_id: {
-      model: 'office',
-      required: true
+      model: "office",
+      required: true,
     },
 
     date: {
-      type: 'string', // format: YYYY-MM-DD
-      required: true
+      type: "string", // format: YYYY-MM-DD
+      required: true,
     },
 
     check_in_time: {
-      type: 'ref',
-      columnType: 'datetime',
-      allowNull: true
+      type: "ref",
+      columnType: "timestamp",
     },
 
     check_out_time: {
-      type: 'ref',
-      columnType: 'datetime',
-      allowNull: true
+      type: "ref",
+      columnType: "timestamp",
     },
 
     check_in_lat: {
-      type: 'number',
-      allowNull: true
+      type: "number",
+      allowNull: true,
     },
 
     check_in_long: {
-      type: 'number',
-      allowNull: true
+      type: "number",
+      allowNull: true,
     },
 
     check_out_lat: {
-      type: 'number',
-      allowNull: true
+      type: "number",
+      allowNull: true,
     },
 
     check_out_long: {
-      type: 'number',
-      allowNull: true
+      type: "number",
+      allowNull: true,
     },
 
     check_in_photo_url: {
-      type: 'string',
-      allowNull: true
+      type: "string",
+      allowNull: true,
     },
 
     check_out_photo_url: {
-      type: 'string',
-      allowNull: true
+      type: "string",
+      allowNull: true,
     },
 
     check_in_notes: {
-      type: 'string',
-      allowNull: true
+      type: "string",
+      // allowNull: true
     },
 
     check_out_notes: {
-      type: 'string',
-      allowNull: true
+      type: "string",
+      // allowNull: true
+    },
+
+    check_in_tasks: {
+      type: "json",
+      // allowNull: true
+    },
+
+    check_out_tasks: {
+      type: "json",
+      // allowNull: true
+    },
+    working_hours: {
+      type: "number",
+      //allowNull: true,
     },
 
     isCheckedOut: {
-      type: 'boolean',
-      defaultsTo: false
-    }
-
-  }
+      type: "boolean",
+      defaultsTo: false,
+    },
+  },
 };

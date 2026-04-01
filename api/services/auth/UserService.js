@@ -1,5 +1,5 @@
 module.exports = {
-  async findOrCreate(profile) {
+  async findOrCreate(profile, email) {
     let user = await User.findOne({ external_id: profile.id });
 
     if (!user) {
@@ -7,7 +7,7 @@ module.exports = {
         external_id: profile.id,
         firstName: profile.firstName || "",
         lastName: profile.lastName || "",
-        email: profile.email,
+        email: email,
         isAdmin: profile.isAdmin,
       }).fetch();
 

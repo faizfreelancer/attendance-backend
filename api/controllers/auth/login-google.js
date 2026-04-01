@@ -1,3 +1,5 @@
+const AuthService = require("../../services/auth/AuthService");
+
 module.exports = async function (req, res) {
   try {
     const authHeader = req.headers.authorization;
