@@ -35,7 +35,9 @@ module.exports = {
       check_in_lat: data.lat,
       check_in_long: data.long,
       check_in_photo_url: photoUrl,
-      check_in_notes: data.notes || null,
+      check_in_notes: data.notes, // ← simpan notes apa adanya (bisa null atau array)
+      check_in_task: Array.isArray(data.task) ? data.task : [],
+      check_out_task: [], // ← default empty array
     }).fetch();
   },
 };

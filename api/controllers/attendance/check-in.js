@@ -8,10 +8,6 @@ module.exports = async function (req, res) {
       return res.forbidden({ error: "Unauthorized" });
     }
 
-    // Ambil data teks dari body (lat, long, notes)
-    // photo tidak diambil dari sini karena photo adalah file, bukan teks
-    const { lat, long, notes } = req.body;
-
     // Ambil file foto menggunakan Skipper (built-in file handler Sails)
     // req.file("photo") → ambil file dengan nama field "photo" dari request
     // maxBytes: 10000000 → batas maksimal ukuran file 10MB
@@ -26,6 +22,27 @@ module.exports = async function (req, res) {
           return res.badRequest({ error: "Foto wajib" });
         }
 
+        // Ambil data teks dari body SETELAH upload selesai
+        // (Skipper harus selesai dulu baru req.body bisa dibaca)
+        const { lat, long, notes, task } = req.body;
+
+        sails.log("REQ BODY:", req.body);
+        sails.log("TASK RAW:", task);
+
+        // Parse task dari string ke array karena form-data kirim sebagai string
+        // const parsedTask = task ? JSON.parse(task) : null;
+
+        let parsedTask = null;
+
+        if (task) {
+          try {
+            parsedTask = JSON.parse(task);
+          } catch (err) {
+            sails.log.error("Task parse error:", err);
+            parsedTask = [];
+          }
+        }
+
         try {
           // Panggil AttendanceService.checkIn dengan data lengkap
           // uploadedFiles[0].fd → path/lokasi file yang tersimpan sementara di server
@@ -33,7 +50,8 @@ module.exports = async function (req, res) {
             lat,
             long,
             photo: uploadedFiles[0].fd, // path file hasil upload Skipper
-            notes,
+            notes, // notes yang masih berupa string
+            task: parsedTask, // task yang sudah diparsing jadi array
           });
 
           // Kalau semua proses berhasil, return response sukses
