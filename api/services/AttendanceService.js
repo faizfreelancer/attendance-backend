@@ -58,6 +58,8 @@ module.exports = {
 
   async checkOut(userId, data) {
     const { lat, long, photo, note, tasks } = data;
+
+    sails.log("CHECKOUT SERVICE DATA:", data);
     // 1. Validasi basic
     if (!lat || !long) {
       throw new Error("Lokasi wajib diisi");

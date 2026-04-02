@@ -31,7 +31,7 @@ module.exports = {
           "<=": endDate,
         },
       },
-      sort: "log_date DESC, log_time DESC",
+      sort: [{ log_date: "DESC" }, { log_time: "DESC" }],
     });
   },
 };

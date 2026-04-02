@@ -18,7 +18,7 @@ module.exports = {
 
     log_time: {
       type: "ref", // Date object
-      columnType: "datetime",
+      columnType: "timestamp",
       required: true,
     },
 
