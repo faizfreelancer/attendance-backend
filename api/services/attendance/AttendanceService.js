@@ -1,4 +1,5 @@
 module.exports = {
+  /* Check-in service */
   async checkIn(userId, data) {
     const { lat, long, photo, note, tasks } = data;
     const today = new Date().toISOString().split("T")[0]; // ← taruh disini
@@ -30,7 +31,7 @@ module.exports = {
     const photoUrl = await UploadService.uploadImage(photo);
 
     // 5. save
-    return await Attendance.create({
+    const attendance = await Attendance.create({
       user_id: userId,
       office_id: geo.officeId, // ← dari geo
       date: today,
@@ -42,7 +43,18 @@ module.exports = {
       check_in_tasks: Array.isArray(tasks) ? tasks : [],
       check_out_tasks: [], // ← default empty array
     }).fetch();
+
+    // 6. create user log
+    try {
+      await UserLogService.createUserLogs(userId, attendance.id, "check-in");
+    } catch (err) {
+      sails.log.error("Failed to create log:", err);
+    }
+
+    return attendance;
   },
+
+  /* Check-out service */
 
   async checkOut(userId, data) {
     const { lat, long, photo, note, tasks } = data;
@@ -99,6 +111,25 @@ module.exports = {
       working_hours: Number(workingHours.toFixed(2)),
     });
 
+    try {
+      await UserLogService.createUserLogs(userId, attendance.id, "check-out");
+    } catch (err) {
+      sails.log.error("Failed to create log:", err);
+    }
+
     return updated;
+  },
+
+  /* getAttendance service (Satu profile)*/
+  async getTodayAttendanceByUser(userId) {
+    // format: YYYY-MM-DD
+    const today = new Date().toISOString().slice(0, 10);
+
+    const attendance = await Attendance.findOne({
+      user_id: userId,
+      date: today,
+    });
+
+    return attendance;
   },
 };

@@ -27,6 +27,8 @@ module.exports.routes = {
     action: "attendance/check-out",
   },
 
+  "GET /api/attendance/profile-today": { action: "attendance/profile-today" },
+
   // Office routes
   "POST /api/office": "OfficeController.create",
   "GET /api/office": "OfficeController.list",
