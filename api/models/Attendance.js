@@ -55,12 +55,12 @@ module.exports = {
       allowNull: true,
     },
 
-    check_in_notes: {
+    check_in_note: {
       type: "string",
       // allowNull: true
     },
 
-    check_out_notes: {
+    check_out_note: {
       type: "string",
       // allowNull: true
     },

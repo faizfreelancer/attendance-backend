@@ -19,7 +19,7 @@ module.exports = async function (req, res) {
 
         // Ambil data teks dari body SETELAH upload selesai
         // (Skipper harus selesai dulu baru req.body bisa dibaca)
-        const { lat, long, notes, tasks } = req.body;
+        const { lat, long, note, tasks } = req.body;
 
         // Parse task dari string ke array karena form-data kirim sebagai string
         // const parsedTasks = tasks ? JSON.parse(tasks) : null;
@@ -42,7 +42,7 @@ module.exports = async function (req, res) {
             lat,
             long,
             photo: uploadedFiles[0].fd, // path file hasil upload Skipper
-            notes, // notes yang masih berupa string
+            note, // note yang masih berupa string
             tasks: parsedTasks, // tasks yang sudah diparsing jadi array
           });
 

@@ -1,13 +1,15 @@
 module.exports = {
   async checkIn(userId, data) {
-    const { lat, long, photo, notes, tasks } = data;
+    const { lat, long, photo, note, tasks } = data;
     const today = new Date().toISOString().split("T")[0]; // ← taruh disini
+
+    sails.log("CHECKIN SERVICE DATA:", data);
     // 1. basic validation
-    if (lat || long) {
+    if (!lat || !long) {
       throw new Error("Lokasi wajib");
     }
 
-    if (photo) {
+    if (!photo) {
       throw new Error("Foto wajib");
     }
 
@@ -36,14 +38,14 @@ module.exports = {
       check_in_lat: lat,
       check_in_long: long,
       check_in_photo_url: photoUrl,
-      check_in_notes: notes, // ← simpan notes apa adanya (bisa null atau array)
-      check_in_task: Array.isArray(tasks) ? tasks : [],
-      check_out_task: [], // ← default empty array
+      check_in_note: note, // ← simpan note apa adanya (bisa null atau array)
+      check_in_tasks: Array.isArray(tasks) ? tasks : [],
+      check_out_tasks: [], // ← default empty array
     }).fetch();
   },
 
   async checkOut(userId, data) {
-    const { lat, long, photo, notes, tasks } = data;
+    const { lat, long, photo, note, tasks } = data;
     // 1. Validasi basic
     if (!lat || !long) {
       throw new Error("Lokasi wajib diisi");
@@ -91,8 +93,8 @@ module.exports = {
       check_out_lat: lat,
       check_out_long: long,
       check_out_photo_url: photoUrl,
-      check_out_notes: notes || null,
-      check_out_task: Array.isArray(tasks) ? tasks : [],
+      check_out_note: note || null,
+      check_out_tasks: Array.isArray(tasks) ? tasks : [],
       isCheckedOut: true,
       working_hours: Number(workingHours.toFixed(2)),
     });
