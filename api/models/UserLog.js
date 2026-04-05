@@ -1,11 +1,11 @@
 module.exports = {
   attributes: {
-    user_id: {
+    userId: {
       model: "user",
       required: true,
     },
 
-    attendance_id: {
+    attendanceId: {
       model: "attendance",
       required: true,
     },
@@ -16,13 +16,13 @@ module.exports = {
       required: true,
     },
 
-    log_time: {
+    logTime: {
       type: "ref", // Date object
-      columnType: "timestamp",
+      columnType: "datetime",
       required: true,
     },
 
-    log_date: {
+    logDate: {
       type: "string",
       required: true, // format YYYY-MM-DD
     },

@@ -15,12 +15,13 @@
 
   module.exports.datastores = {
     default: {
-      adapter: "sails-postgresql",
-      host: "localhost",
-      port: 5432,
-      database: "attendance_db",
-      user: "postgres",
-      password: "Bismillah123",
+      adapter: "sails-mysql",
+      url: "mysql://root:@localhost:3306/attendance_db?charset=utf8mb4",
+      mysqlClientConfig: {
+        authPlugins: {
+          mysql_native_password: () => () => Buffer.from(""),
+        },
+      },
     },
   };
 

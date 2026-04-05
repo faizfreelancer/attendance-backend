@@ -1,11 +1,11 @@
 module.exports = {
   attributes: {
-    user_id: {
+    userId: {
       model: "user",
       required: true,
     },
 
-    office_id: {
+    officeId: {
       model: "office",
       required: true,
     },
@@ -15,65 +15,65 @@ module.exports = {
       required: true,
     },
 
-    check_in_time: {
+    checkInTime: {
       type: "ref",
-      columnType: "timestamp",
+      columnType: "datetime",
     },
 
-    check_out_time: {
+    checkOutTime: {
       type: "ref",
-      columnType: "timestamp",
+      columnType: "datetime",
     },
 
-    check_in_lat: {
+    checkInLat: {
       type: "number",
       allowNull: true,
     },
 
-    check_in_long: {
+    checkInLong: {
       type: "number",
       allowNull: true,
     },
 
-    check_out_lat: {
+    checkOutLat: {
       type: "number",
       allowNull: true,
     },
 
-    check_out_long: {
+    checkOutLong: {
       type: "number",
       allowNull: true,
     },
 
-    check_in_photo_url: {
+    checkInPhotoUrl: {
       type: "string",
       allowNull: true,
     },
 
-    check_out_photo_url: {
+    checkOutPhotoUrl: {
       type: "string",
       allowNull: true,
     },
 
-    check_in_note: {
-      type: "string",
-      // allowNull: true
-    },
+    // checkInNote: {
+    //   type: "string",
+    //   // allowNull: true
+    // },
 
-    check_out_note: {
-      type: "string",
-      // allowNull: true
-    },
+    // checkOutNote: {
+    //   type: "string",
+    //   // allowNull: true
+    // },
 
-    check_in_tasks: {
-      type: "json",
-      // allowNull: true
-    },
+    // checkInTasks: {
+    //   type: "json",
+    //   // allowNull: true
+    // },
 
-    check_out_tasks: {
-      type: "json",
-      // allowNull: true
-    },
+    // checkOutTasks: {
+    //   type: "json",
+    //   // allowNull: true
+    // },
     working_hours: {
       type: "number",
       //allowNull: true,

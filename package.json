@@ -12,12 +12,13 @@
     "dotenv": "^17.3.1",
     "geolib": "^3.3.4",
     "grunt": "1.0.4",
+    "mysql2": "^3.20.0",
     "node-fetch": "^2.7.0",
     "sails": "^1.5.17",
     "sails-hook-grunt": "^5.0.0",
     "sails-hook-orm": "^4.0.3",
     "sails-hook-sockets": "^3.0.0",
-    "sails-postgresql": "^5.0.1"
+    "sails-mysql": "^3.0.1"
   },
   "devDependencies": {
     "eslint": "5.16.0"

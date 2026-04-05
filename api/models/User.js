@@ -7,7 +7,7 @@
 
 module.exports = {
   attributes: {
-    external_id: {
+    externalId: {
       type: "number",
       required: true,
       unique: true,

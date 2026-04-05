@@ -33,15 +33,15 @@ module.exports = {
     // 5. save
     const attendance = await Attendance.create({
       user_id: userId,
-      office_id: geo.officeId, // ← dari geo
+      officeId: geo.officeId, // ← dari geo
       date: today,
-      check_in_time: new Date(),
-      check_in_lat: lat,
-      check_in_long: long,
-      check_in_photo_url: photoUrl,
-      check_in_note: note, // ← simpan note apa adanya (bisa null atau array)
-      check_in_tasks: Array.isArray(tasks) ? tasks : [],
-      check_out_tasks: [], // ← default empty array
+      checkInTime: new Date(),
+      checkInLat: lat,
+      checkInLong: long,
+      checkInPhotoUrl: photoUrl,
+      checkInNote: note, // ← simpan note apa adanya (bisa null atau array)
+      checkInTasks: Array.isArray(tasks) ? tasks : [],
+      checkOutTasks: [], // ← default empty array
     }).fetch();
 
     // 6. create user log
@@ -103,12 +103,12 @@ module.exports = {
     const updated = await Attendance.updateOne({
       id: attendance.id,
     }).set({
-      check_out_time: checkOutTime,
-      check_out_lat: lat,
-      check_out_long: long,
-      check_out_photo_url: photoUrl,
-      check_out_note: note || null,
-      check_out_tasks: Array.isArray(tasks) ? tasks : [],
+      checkOutTime: checkOutTime,
+      checkOutLat: lat,
+      checkOutLong: long,
+      checkOutPhotoUrl: photoUrl,
+      checkOutNote: note || null,
+      checkOutTasks: Array.isArray(tasks) ? tasks : [],
       isCheckedOut: true,
       working_hours: Number(workingHours.toFixed(2)),
     });

@@ -7,8 +7,8 @@ module.exports = {
       user_id: userId,
       attendance_id: attendanceId,
       type: type,
-      log_time: now,
-      log_date: now.toISOString().split("T")[0],
+      logTime: now,
+      logDate: now.toISOString().split("T")[0],
     }).fetch();
   },
 
@@ -26,12 +26,12 @@ module.exports = {
     return await UserLog.find({
       where: {
         user_id: userId,
-        log_date: {
+        logDate: {
           ">=": startDate,
           "<=": endDate,
         },
       },
-      sort: [{ log_date: "DESC" }, { log_time: "DESC" }],
+      sort: [{ logDate: "DESC" }, { logTime: "DESC" }],
     });
   },
 };
